@@ -1,0 +1,13 @@
+Plan	Region	Sample_N	Random_sampling_order
+Plan_A_conservative	Qinling Mountains	22	1
+Plan_A_conservative	Southern Loess Plateau	6	2
+Plan_A_conservative	Lvliang Mountain	5	3
+Plan_A_conservative	Taiyue Mountains	5	5
+Plan_A_conservative	Zhongtiao Mountain	5	4
+Plan_A_conservative	Taihang Mountains	0	6
+Plan_B_expanded	Qinling Mountains	54	1
+Plan_B_expanded	Southern Loess Plateau	17	2
+Plan_B_expanded	Lvliang Mountain	10	3
+Plan_B_expanded	Taiyue Mountains	10	5
+Plan_B_expanded	Zhongtiao Mountain	10	4
+Plan_B_expanded	Taihang Mountains	10	6

@@ -1,0 +1,75 @@
+{
+  "project_root": ".",
+  "output_root": "results",
+  "tools": {
+    "bcftools": "bcftools",
+    "prefer_bcftools": false,
+    "allow_direct_vcf_fallback": true
+  },
+  "inputs": {
+    "metadata": "01_qc/07.sample_metadata.tsv",
+    "missing_site_vcf": "07_diversity/42.region_conservation_gap/02.Wild_minor_missing_in_all_Ex_situ.sites.vcf.gz",
+    "pairwise_pihat": "08_redundancy_relatedness/01_relatedness/06.pairwise_PIHAT_with_metadata.tsv",
+    "roh_sample_summary": "09_roh_inbreeding/02_roh_summary/07.sample_ROH_with_metadata_and_length_class.tsv",
+    "sample_lists": {
+      "wild": "07_diversity/19.metadata.Wild.samples.txt",
+      "ex_situ": "07_diversity/20.metadata.Ex_situ.samples.txt",
+      "pingshun": "07_diversity/21.metadata.Ex_situ.Pingshun.samples.txt",
+      "tongguan": "07_diversity/22.metadata.Ex_situ.Tongguan.samples.txt",
+      "zhendong": "07_diversity/23.metadata.Ex_situ.Zhendong.samples.txt"
+    },
+    "acan": {
+      "wild": "07_diversity/40.allele_coverage/01.Wild.AC_AN.tsv.gz",
+      "ex_situ": "07_diversity/40.allele_coverage/02.Ex_situ.AC_AN.tsv.gz",
+      "pingshun": "07_diversity/40.allele_coverage/03.Pingshun.AC_AN.tsv.gz",
+      "tongguan": "07_diversity/40.allele_coverage/04.Tongguan.AC_AN.tsv.gz",
+      "zhendong": "07_diversity/40.allele_coverage/05.Zhendong.AC_AN.tsv.gz"
+    },
+    "region_acan": {
+      "Qinling Mountains": "07_diversity/42.region_conservation_gap/04.Wild_missing_minor.Qinling_Mountains.AC_AN.tsv.gz",
+      "Lvliang Mountain": "07_diversity/42.region_conservation_gap/04.Wild_missing_minor.Lvliang_Mountain.AC_AN.tsv.gz",
+      "Taihang Mountains": "07_diversity/42.region_conservation_gap/04.Wild_missing_minor.Taihang_Mountains.AC_AN.tsv.gz"
+    },
+    "pass_snp_vcf": "01_qc/04.samples_filtered.PASS.snp.vcf.gz",
+    "diversity_snp_vcf": "02_filter/03.diversity.miss0.8.bi.noMAF.polymorphic.vcf.gz"
+  },
+  "parameters": {
+    "region_sample_counts": {
+      "Qinling Mountains": 3,
+      "Lvliang Mountain": 2,
+      "Taihang Mountains": 1
+    },
+    "pihat_thresholds": [
+      0.9,
+      0.8,
+      0.7,
+      0.5
+    ],
+    "operational_pihat_threshold": 0.8,
+    "greedy_maf_weights": {
+      "MAF_le_0.01": 1.0,
+      "0.01_lt_MAF_le_0.05": 2.0,
+      "0.05_lt_MAF_le_0.10": 2.0
+    },
+    "random_control": {
+      "n_permutations": 20,
+      "seed": 123,
+      "legacy_rng_compatibility": true
+    },
+    "strict_carrier_DP_GQ": true,
+    "selected_low_call_rate_threshold": 0.6
+  },
+  "expected_results": {},
+  "expected_portfolios": {
+    "target_total": 6,
+    "Current_missing": 2,
+    "Core_missing": 3,
+    "Plan_A_missing": 0,
+    "Plan_B_missing": 0,
+    "core_added_loss": 1,
+    "Plan_A_rescued_loss": 1,
+    "Plan_B_rescued_loss": 1,
+    "Plan_A_recovered_original": 2,
+    "Plan_B_recovered_original": 2
+  }
+}

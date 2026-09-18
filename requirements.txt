@@ -1,0 +1,2 @@
+# Python standard library only; Python >=3.11.
+# bcftools is an external executable; see environment.yml.

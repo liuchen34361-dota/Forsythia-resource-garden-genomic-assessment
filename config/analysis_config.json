@@ -1,0 +1,130 @@
+{
+  "project_root": ".",
+  "output_root": "genomic_assessment_results_v2",
+  "tools": {
+    "bcftools": "bcftools",
+    "prefer_bcftools": true,
+    "allow_direct_vcf_fallback": false
+  },
+  "inputs": {
+    "metadata": "01_qc/07.sample_metadata.tsv",
+    "missing_site_vcf": "07_diversity/42.region_conservation_gap/02.Wild_minor_missing_in_all_Ex_situ.sites.vcf.gz",
+    "pairwise_pihat": "08_redundancy_relatedness/01_relatedness/06.pairwise_PIHAT_with_metadata.tsv",
+    "roh_sample_summary": "09_roh_inbreeding/02_roh_summary/07.sample_ROH_with_metadata_and_length_class.tsv",
+    "sample_lists": {
+      "wild": "07_diversity/19.metadata.Wild.samples.txt",
+      "ex_situ": "07_diversity/20.metadata.Ex_situ.samples.txt",
+      "pingshun": "07_diversity/21.metadata.Ex_situ.Pingshun.samples.txt",
+      "tongguan": "07_diversity/22.metadata.Ex_situ.Tongguan.samples.txt",
+      "zhendong": "07_diversity/23.metadata.Ex_situ.Zhendong.samples.txt"
+    },
+    "acan": {
+      "wild": "07_diversity/40.allele_coverage/01.Wild.AC_AN.tsv.gz",
+      "ex_situ": "07_diversity/40.allele_coverage/02.Ex_situ.AC_AN.tsv.gz",
+      "pingshun": "07_diversity/40.allele_coverage/03.Pingshun.AC_AN.tsv.gz",
+      "tongguan": "07_diversity/40.allele_coverage/04.Tongguan.AC_AN.tsv.gz",
+      "zhendong": "07_diversity/40.allele_coverage/05.Zhendong.AC_AN.tsv.gz"
+    },
+    "region_acan": {
+      "Lvliang Mountain": "07_diversity/42.region_conservation_gap/04.Wild_missing_minor.Lvliang_Mountain.AC_AN.tsv.gz",
+      "Qinling Mountains": "07_diversity/42.region_conservation_gap/04.Wild_missing_minor.Qinling_Mountains.AC_AN.tsv.gz",
+      "Southern Loess Plateau": "07_diversity/42.region_conservation_gap/04.Wild_missing_minor.Southern_Loess_Plateau.AC_AN.tsv.gz",
+      "Taihang Mountains": "07_diversity/42.region_conservation_gap/04.Wild_missing_minor.Taihang_Mountains.AC_AN.tsv.gz",
+      "Taiyue Mountains": "07_diversity/42.region_conservation_gap/04.Wild_missing_minor.Taiyue_Mountains.AC_AN.tsv.gz",
+      "Zhongtiao Mountain": "07_diversity/42.region_conservation_gap/04.Wild_missing_minor.Zhongtiaoshan.AC_AN.tsv.gz"
+    },
+    "pass_snp_vcf": "01_qc/04.samples_filtered.PASS.snp.vcf.gz",
+    "diversity_snp_vcf": "02_filter/03.diversity.miss0.8.bi.noMAF.polymorphic.vcf.gz"
+  },
+  "parameters": {
+    "region_sample_counts": {
+      "Taihang Mountains": 116,
+      "Qinling Mountains": 63,
+      "Taiyue Mountains": 19,
+      "Southern Loess Plateau": 23,
+      "Lvliang Mountain": 18,
+      "Zhongtiao Mountain": 28
+    },
+    "pihat_thresholds": [
+      0.9,
+      0.8,
+      0.7,
+      0.5
+    ],
+    "operational_pihat_threshold": 0.8,
+    "greedy_maf_weights": {
+      "MAF_le_0.01": 1.0,
+      "0.01_lt_MAF_le_0.05": 2.0,
+      "0.05_lt_MAF_le_0.10": 2.0
+    },
+    "random_control": {
+      "n_permutations": 1000,
+      "seed": 20260620,
+      "legacy_rng_compatibility": true
+    },
+    "strict_carrier_DP_GQ": true,
+    "selected_low_call_rate_threshold": 0.6
+  },
+  "expected_results": {
+    "total_samples": 601,
+    "wild_sample_n": 267,
+    "ex_situ_total": 334,
+    "pingshun_sample_n": 267,
+    "tongguan_sample_n": 30,
+    "zhendong_sample_n": 37,
+    "wild_minor_total": 24445213,
+    "combined_ex_situ_retained": 24264417,
+    "combined_ex_situ_missing": 180796,
+    "combined_ex_situ_retention_rate": 0.9926040325359407,
+    "pingshun_retained": 23222285,
+    "tongguan_retained": 15843300,
+    "zhendong_retained": 16422096,
+    "missing_ac_ge_2": 114787,
+    "missing_ac_ge_3": 73072,
+    "wild_carrier_genotype_n": 495530,
+    "wild_carrier_dp_median": 10.0,
+    "wild_carrier_gq_median": 99.0,
+    "de_redundant_core_n": 286,
+    "lower_priority_redundant_n": 48,
+    "pingshun_core_n": 220,
+    "tongguan_core_n": 30,
+    "zhendong_core_n": 36,
+    "reported_alt_states_total": 62594768,
+    "reported_alt_states_retained": 62112843,
+    "reported_alt_states_lost": 481925,
+    "reported_alt_state_retention_rate": 0.9923008740922244,
+    "plan_a_wild_n": 43,
+    "priority_2_wild_n": 68,
+    "plan_b_wild_n": 111,
+    "plan_a_recovered": 79335,
+    "plan_b_recovered": 133304,
+    "plan_a_recovery_rate": 0.43880948693555166,
+    "plan_b_recovery_rate": 0.7373171972831257,
+    "selected_qc_roh_gt2mb_n": 0,
+    "selected_qc_duplicate_component_n": 0,
+    "alt_coverage_vcf_site_n": 78184349,
+    "true_alt_copy_total": 3457537831,
+    "true_alt_copy_covered": 3456869730,
+    "true_alt_copy_uncovered": 668101,
+    "true_alt_copy_weighted_coverage_rate": 0.999806769720924,
+    "random_seed": 20260620,
+    "random_permutations": 1000,
+    "plan_a_random_gain_all_pp_rounded2": 3.52,
+    "plan_a_random_gain_very_rare_pp_rounded2": 3.21,
+    "plan_a_random_gain_low_frequency_pp_rounded2": 3.79,
+    "plan_b_random_gain_all_pp_rounded2": 4.67,
+    "plan_b_random_gain_very_rare_pp_rounded2": 5.47
+  },
+  "expected_portfolios": {
+    "target_total": 24445213,
+    "Current_missing": 180796,
+    "Core_missing": 247641,
+    "Plan_A_missing": 140023,
+    "Plan_B_missing": 64729,
+    "core_added_loss": 66845,
+    "Plan_A_rescued_loss": 28283,
+    "Plan_B_rescued_loss": 49608,
+    "Plan_A_recovered_original": 79335,
+    "Plan_B_recovered_original": 133304
+  }
+}

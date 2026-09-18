@@ -1,0 +1,7 @@
+name: forsythia_assessment
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - bcftools=1.23.1
