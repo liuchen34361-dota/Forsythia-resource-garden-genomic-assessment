@@ -27,7 +27,7 @@ def require(condition: bool, message: str) -> None:
 def main() -> None:
     package_root = Path(__file__).resolve().parents[1]
     source_project = package_root / "tests" / "synthetic_project"
-    with tempfile.TemporaryDirectory(prefix="forsythia_audit_smoke_") as tmp:
+    with tempfile.TemporaryDirectory(prefix="forsythia_assessment_smoke_") as tmp:
         project = Path(tmp) / "synthetic_project"
         shutil.copytree(source_project, project, ignore=shutil.ignore_patterns("results", "__pycache__", "*.pyc"))
         config = project / "config" / "analysis_config.json"

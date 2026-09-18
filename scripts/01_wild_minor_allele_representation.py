@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Wild minor-allele retention, AC robustness, and garden complementarity.
 
-This script reconstructs the core allele-audit tables directly from the five
+This script reconstructs the core allele-representation tables directly from the five
 aligned AC/AN files.  It replaces the missing historical script that produced
 the original retention/missing tables.
 """
@@ -306,7 +306,7 @@ def main() -> None:
     ] + list(observed.items())
     write_key_value(out / "09.internal_check.tsv", check_items)
 
-    print(f"[OK] Allele-gap audit complete: {out}")
+    print(f"[OK] Allele-representation analysis complete: {out}")
 
 
 if __name__ == "__main__":

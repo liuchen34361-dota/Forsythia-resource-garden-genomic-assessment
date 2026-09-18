@@ -81,7 +81,7 @@ def load_config(path: str | Path) -> dict[str, Any]:
     # Public key is singular; retain the historical plural alias used by the
     # consolidated analysis scripts.
     if "outputs_root" not in cfg:
-        cfg["outputs_root"] = cfg.get("output_root", "genomic_audit_reproducibility_results")
+        cfg["outputs_root"] = cfg.get("output_root", "genomic_assessment_reproducibility_results")
 
     inputs = cfg.setdefault("inputs", {})
     if not isinstance(inputs, dict):
@@ -159,7 +159,7 @@ def package_path(cfg: Mapping[str, Any], value: str | Path) -> Path:
 def outputs_root(cfg: Mapping[str, Any]) -> Path:
     root = project_path(
         cfg,
-        cfg.get("outputs_root", cfg.get("output_root", "genomic_audit_reproducibility_results")),
+        cfg.get("outputs_root", cfg.get("output_root", "genomic_assessment_reproducibility_results")),
     )
     root.mkdir(parents=True, exist_ok=True)
     return root

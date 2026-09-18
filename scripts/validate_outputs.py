@@ -217,11 +217,11 @@ def main() -> None:
     }
     for rarefaction_name, target_name in garden_target_map.items():
         rarefied_observed = float(rarefaction_by_target[rarefaction_name]["Retained_Wild_SNP_minor_alleles"])
-        audit_observed = float(retention_by_target[target_name]["Retained_Wild_minor_alleles"])
+        representation_observed = float(retention_by_target[target_name]["Retained_Wild_minor_alleles"])
         invariant(
-            f"rarefaction_observed_matches_allele_audit_{target_name}",
-            abs(rarefied_observed - audit_observed) < 1e-8,
-            f"rarefaction={rarefied_observed}, audit={audit_observed}",
+            f"rarefaction_observed_matches_allele_representation_{target_name}",
+            abs(rarefied_observed - representation_observed) < 1e-8,
+            f"rarefaction={rarefied_observed}, representation={representation_observed}",
         )
     true_copy_total = int(float(alt_all["Current_ex_situ_ALT_copies"]))
     true_copy_covered = int(float(alt_all["Current_ALT_copies_covered_by_core_presence"]))
